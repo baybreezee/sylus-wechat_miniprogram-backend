@@ -1,0 +1,68 @@
+nohup: ignoring input
+INFO:     Started server process [11735]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:2100 (Press CTRL+C to quit)
+INFO:     127.0.0.1:54670 - "POST /api/users/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54682 - "GET /api/relationship/status HTTP/1.1" 200 OK
+DEBUG: 检查今天是否有之前的聊天消息, user_id=67d7def1a32e852bf011205b, today=2025-03-17
+DEBUG: 今天之前的聊天消息数量: 8
+INFO:     127.0.0.1:54690 - "POST /api/chat/send HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54698 - "GET /api/relationship/status HTTP/1.1" 200 OK
+DEBUG: 检查今天是否有之前的聊天消息, user_id=67d7def1a32e852bf011205b, today=2025-03-18
+DEBUG: 今天之前的聊天消息数量: 0
+DEBUG: 这是今天第一条消息，增加聊天天数
+DEBUG: 找到Sylus, ID=67d3f703b6f9169f33017316
+DEBUG: 找到关系信息, ID=67d7e0fbfc5c0a33c3579d9e, 当前聊天天数=1
+DEBUG: 更新结果: matched=1, modified=1
+INFO:     127.0.0.1:54712 - "POST /api/chat/test_new_day HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54726 - "GET /api/relationship/status HTTP/1.1" 200 OK
+INFO:     172.16.0.125:54258 - "GET / HTTP/1.1" 200 OK
+INFO:     172.16.0.118:24878 - "POST /api/users/login HTTP/1.1" 200 OK
+INFO:     172.16.0.118:24878 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.118:62714 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.118:62714 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.118:62714 - "POST /api/moments/67d7def1a32e852bf011205e/like HTTP/1.1" 200 OK
+INFO:     172.16.0.118:62714 - "POST /api/moments/67d7def1a32e852bf011205e/like HTTP/1.1" 400 Bad Request
+INFO:     172.16.0.118:4934 - "POST /api/moments/67d7de8fa32e852bf011205a/like HTTP/1.1" 200 OK
+INFO:     172.16.0.118:4934 - "POST /api/moments/67d7de8fa32e852bf011205a/like HTTP/1.1" 400 Bad Request
+INFO:     172.16.0.118:4934 - "POST /api/moments/67d7dbf1a32e852bf0112054/like HTTP/1.1" 200 OK
+INFO:     172.16.0.118:4934 - "POST /api/moments/67d7da1904e2e23fbef3b52e/like HTTP/1.1" 200 OK
+INFO:     172.16.0.118:4934 - "POST /api/moments/67d7da1904e2e23fbef3b52e/like HTTP/1.1" 400 Bad Request
+INFO:     172.16.0.118:21744 - "POST /api/moments/67d7da1904e2e23fbef3b52e/comment HTTP/1.1" 200 OK
+INFO:     172.16.0.118:11196 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.118:11198 - "GET /api/users/sylus HTTP/1.1" 404 Not Found
+INFO:     172.16.0.118:11196 - "GET /api/users/sylus HTTP/1.1" 404 Not Found
+INFO:     172.16.0.118:11198 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.118:7680 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.118:7680 - "GET /api/users/sylus HTTP/1.1" 404 Not Found
+INFO:     172.16.0.118:62830 - "POST /api/users/login HTTP/1.1" 200 OK
+INFO:     172.16.0.118:3662 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.118:3676 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.118:3676 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.118:11458 - "POST /api/moments HTTP/1.1" 200 OK
+INFO:     172.16.0.118:20474 - "POST /api/users/login HTTP/1.1" 200 OK
+INFO:     172.16.0.118:20474 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.118:20474 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.118:20474 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.118:20482 - "POST /api/moments HTTP/1.1" 200 OK
+INFO:     172.16.0.118:29634 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.118:20482 - "POST /api/moments/ai-response HTTP/1.1" 200 OK
+INFO:     172.16.0.118:20482 - "POST /api/moments/67d7fd47918e7aa788232fd2/like HTTP/1.1" 200 OK
+INFO:     172.16.0.118:20482 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.118:10246 - "POST /api/moments/67d7fd47918e7aa788232fd2/comment HTTP/1.1" 200 OK
+INFO:     172.16.0.118:11786 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.118:11786 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.118:11802 - "GET /api/users/sylus HTTP/1.1" 404 Not Found
+INFO:     172.16.0.118:11786 - "GET /api/users/sylus HTTP/1.1" 404 Not Found
+INFO:     172.16.0.118:11802 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.118:28452 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.118:28452 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.118:28452 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.118:28452 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.118:28962 - "GET /api/users/sylus HTTP/1.1" 404 Not Found
+INFO:     172.16.0.118:28966 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.118:50002 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.118:50004 - "GET /api/users/sylus HTTP/1.1" 404 Not Found
+INFO:     172.16.0.118:50004 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.118:50002 - "GET /api/users/sylus HTTP/1.1" 404 Not Found
