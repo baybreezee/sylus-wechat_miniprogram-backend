@@ -75,9 +75,8 @@ async def upload_avatar(file: UploadFile = File(...), current_user: UserInDB = D
     with open(file_path, "wb") as f:
         f.write(await file.read())
     
-    # 更新数据库中的头像URL
-    # 这里的URL格式可能需要根据实际部署环境调整
-    avatar_url = f"/static/uploads/avatars/{current_user.openid}/{unique_filename}"
+    # 更新数据库中的头像URL - 使用新的API端点格式
+    avatar_url = f"/api/users/avatar/{current_user.openid}/{unique_filename}"
     
     # 更新用户头像
     result = users_collection.update_one(

@@ -3,7 +3,8 @@ from typing import Optional
 from datetime import datetime
 from app.controllers.moments_controller import (
     get_moments, create_moment, upload_moment_image,
-    like_moment, unlike_moment, comment_moment, get_ai_moment_response
+    like_moment, comment_moment, get_ai_moment_response,
+    delete_moment, delete_comment
 )
 from app.models.user import UserInDB
 from app.models.moments import CreateMoment, CreateComment, MomentAIResponseRequest
@@ -41,16 +42,8 @@ async def like(
     moment_id: str,
     current_user: UserInDB = Depends(get_current_active_user)
 ):
-    """对指定朋友圈动态点赞"""
+    """对指定朋友圈动态进行点赞/取消点赞操作"""
     return await like_moment(moment_id, current_user)
-
-@router.delete("/{moment_id}/like")
-async def unlike(
-    moment_id: str,
-    current_user: UserInDB = Depends(get_current_active_user)
-):
-    """取消对指定朋友圈动态的点赞"""
-    return await unlike_moment(moment_id, current_user)
 
 @router.post("/{moment_id}/comment")
 async def comment(
@@ -61,10 +54,28 @@ async def comment(
     """对指定朋友圈动态发表评论"""
     return await comment_moment(moment_id, comment, current_user)
 
-@router.post("/ai-response")
+@router.post("/{moment_id}/ai-response")
 async def ai_response(
-    request: MomentAIResponseRequest,
+    moment_id: str,
     current_user: UserInDB = Depends(get_current_active_user)
 ):
     """获取Sylus对用户朋友圈的AI回应"""
-    return await get_ai_moment_response(request, current_user) 
+    request = MomentAIResponseRequest(moment_id=moment_id)
+    return await get_ai_moment_response(request, current_user)
+
+@router.delete("/{moment_id}")
+async def delete(
+    moment_id: str,
+    current_user: UserInDB = Depends(get_current_active_user)
+):
+    """删除指定的朋友圈动态"""
+    return await delete_moment(moment_id, current_user)
+
+@router.delete("/{moment_id}/comments/{comment_id}")
+async def delete_comment_route(
+    moment_id: str,
+    comment_id: str,
+    current_user: UserInDB = Depends(get_current_active_user)
+):
+    """删除指定的朋友圈评论"""
+    return await delete_comment(moment_id, comment_id, current_user) 

@@ -42,8 +42,8 @@ app.include_router(diary_routes.router)
 app.include_router(album_routes.router)
 app.include_router(ai_routes.router)
 
-# 配置静态文件
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
+# 配置静态文件 - 使用单一挂载点
+app.mount("/static", StaticFiles(directory="app/static", html=True), name="static")
 
 # 全局异常处理
 @app.exception_handler(Exception)
@@ -67,7 +67,9 @@ async def startup_event():
     
     # 确保静态文件目录存在
     os.makedirs("app/static/default", exist_ok=True)
-    os.makedirs("app/static/uploads", exist_ok=True)
+    os.makedirs("app/static/uploads/avatars", exist_ok=True)
+    os.makedirs("app/static/uploads/moments", exist_ok=True)
+    os.makedirs("app/static/uploads/albums", exist_ok=True)
 
 # 根路由
 @app.get("/")

@@ -121,54 +121,8 @@ async def upload_moment_image(
             raise e
         raise HTTPException(status_code=500, detail=f"上传图片失败: {str(e)}")
 
-# 点赞朋友圈
+# 点赞/取消点赞朋友圈
 async def like_moment(
-    moment_id: str,
-    current_user: UserInDB = Depends(get_current_active_user)
-):
-    try:
-        # 查找朋友圈
-        moment = moments_collection.find_one({"_id": ObjectId(moment_id)})
-        
-        if not moment:
-            raise HTTPException(status_code=404, detail="朋友圈不存在")
-        
-        # 检查是否已点赞
-        user_id = str(current_user.id) if current_user.id else current_user.openid
-        likes = moment.get("likes", [])
-        
-        for like in likes:
-            if like.get("user_id") == user_id:
-                raise HTTPException(status_code=400, detail="已经点过赞了")
-        
-        # 添加点赞
-        like_data = {
-            "user_id": user_id,
-            "name": current_user.nickname or "用户",
-            "avatar": current_user.avatar,
-            "is_sylus": False,
-            "timestamp": datetime.utcnow()
-        }
-        
-        # 更新数据库
-        result = moments_collection.update_one(
-            {"_id": ObjectId(moment_id)},
-            {"$push": {"likes": like_data}}
-        )
-        
-        if result.modified_count == 0:
-            raise HTTPException(status_code=500, detail="点赞失败")
-        
-        return {"message": "点赞成功"}
-    except bson.errors.InvalidId:
-        raise HTTPException(status_code=400, detail="无效的朋友圈ID格式")
-    except Exception as e:
-        if isinstance(e, HTTPException):
-            raise e
-        raise HTTPException(status_code=500, detail=f"点赞失败: {str(e)}")
-
-# 取消点赞
-async def unlike_moment(
     moment_id: str,
     current_user: UserInDB = Depends(get_current_active_user)
 ):
@@ -181,23 +135,52 @@ async def unlike_moment(
         
         # 用户ID
         user_id = str(current_user.id) if current_user.id else current_user.openid
+        likes = moment.get("likes", [])
         
-        # 更新数据库
-        result = moments_collection.update_one(
-            {"_id": ObjectId(moment_id)},
-            {"$pull": {"likes": {"user_id": user_id}}}
-        )
+        # 检查是否已点赞
+        has_liked = False
+        for like in likes:
+            if like.get("user_id") == user_id:
+                has_liked = True
+                break
         
-        if result.modified_count == 0:
-            raise HTTPException(status_code=400, detail="未找到您的点赞或取消点赞失败")
-        
-        return {"message": "取消点赞成功"}
+        if has_liked:
+            # 如果已点赞，则取消点赞
+            result = moments_collection.update_one(
+                {"_id": ObjectId(moment_id)},
+                {"$pull": {"likes": {"user_id": user_id}}}
+            )
+            
+            if result.modified_count == 0:
+                raise HTTPException(status_code=500, detail="取消点赞失败")
+            
+            return {"message": "取消点赞成功", "action": "unlike"}
+        else:
+            # 如果未点赞，则添加点赞
+            like_data = {
+                "user_id": user_id,
+                "name": current_user.nickname or "用户",
+                "avatar": current_user.avatar,
+                "is_sylus": False,
+                "timestamp": datetime.utcnow()
+            }
+            
+            result = moments_collection.update_one(
+                {"_id": ObjectId(moment_id)},
+                {"$push": {"likes": like_data}}
+            )
+            
+            if result.modified_count == 0:
+                raise HTTPException(status_code=500, detail="点赞失败")
+            
+            return {"message": "点赞成功", "action": "like"}
+            
     except bson.errors.InvalidId:
         raise HTTPException(status_code=400, detail="无效的朋友圈ID格式")
     except Exception as e:
         if isinstance(e, HTTPException):
             raise e
-        raise HTTPException(status_code=500, detail=f"取消点赞失败: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"操作失败: {str(e)}")
 
 # 评论朋友圈
 async def comment_moment(
@@ -315,4 +298,83 @@ async def get_ai_moment_response(
     except bson.errors.InvalidId:
         raise HTTPException(status_code=400, detail="无效的朋友圈ID格式")
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"获取AI朋友圈回复出错: {str(e)}") 
+        raise HTTPException(status_code=500, detail=f"获取AI朋友圈回复出错: {str(e)}")
+
+# 删除朋友圈
+async def delete_moment(
+    moment_id: str,
+    current_user: UserInDB = Depends(get_current_active_user)
+):
+    try:
+        # 查找朋友圈
+        moment = moments_collection.find_one({"_id": ObjectId(moment_id)})
+        
+        if not moment:
+            raise HTTPException(status_code=404, detail="朋友圈不存在")
+        
+        # 检查是否是发布者
+        user_id = str(current_user.id) if current_user.id else current_user.openid
+        if moment["user_id"] != user_id:
+            raise HTTPException(status_code=403, detail="只有发布者可以删除朋友圈")
+        
+        # 删除朋友圈
+        result = moments_collection.delete_one({"_id": ObjectId(moment_id)})
+        
+        if result.deleted_count == 0:
+            raise HTTPException(status_code=500, detail="删除朋友圈失败")
+        
+        return {"message": "删除朋友圈成功"}
+        
+    except bson.errors.InvalidId:
+        raise HTTPException(status_code=400, detail="无效的朋友圈ID格式")
+    except Exception as e:
+        if isinstance(e, HTTPException):
+            raise e
+        raise HTTPException(status_code=500, detail=f"删除朋友圈失败: {str(e)}")
+
+# 删除评论
+async def delete_comment(
+    moment_id: str,
+    comment_id: str,
+    current_user: UserInDB = Depends(get_current_active_user)
+):
+    try:
+        # 查找朋友圈
+        moment = moments_collection.find_one({"_id": ObjectId(moment_id)})
+        
+        if not moment:
+            raise HTTPException(status_code=404, detail="朋友圈不存在")
+        
+        # 查找评论
+        comments = moment.get("comments", [])
+        comment_to_delete = None
+        for comment in comments:
+            if comment.get("id") == comment_id:
+                comment_to_delete = comment
+                break
+        
+        if not comment_to_delete:
+            raise HTTPException(status_code=404, detail="评论不存在")
+        
+        # 检查是否是评论发布者
+        user_id = str(current_user.id) if current_user.id else current_user.openid
+        if comment_to_delete.get("user_id") != user_id:
+            raise HTTPException(status_code=403, detail="只有评论发布者可以删除评论")
+        
+        # 删除评论
+        result = moments_collection.update_one(
+            {"_id": ObjectId(moment_id)},
+            {"$pull": {"comments": {"id": comment_id}}}
+        )
+        
+        if result.modified_count == 0:
+            raise HTTPException(status_code=500, detail="删除评论失败")
+        
+        return {"message": "删除评论成功"}
+        
+    except bson.errors.InvalidId:
+        raise HTTPException(status_code=400, detail="无效的朋友圈ID格式")
+    except Exception as e:
+        if isinstance(e, HTTPException):
+            raise e
+        raise HTTPException(status_code=500, detail=f"删除评论失败: {str(e)}") 
