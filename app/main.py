@@ -11,7 +11,7 @@ from app.config.database import init_db
 from app.routes import (
     user_routes, sylus_routes, relationship_routes,
     chat_routes, moments_routes, diary_routes,
-    album_routes, auth_routes, ai_routes
+    auth_routes, ai_routes
 )
 
 # 创建应用
@@ -39,7 +39,6 @@ app.include_router(relationship_routes.router)
 app.include_router(chat_routes.router)
 app.include_router(moments_routes.router)
 app.include_router(diary_routes.router)
-app.include_router(album_routes.router)
 app.include_router(ai_routes.router)
 
 # 配置静态文件 - 使用单一挂载点
@@ -70,6 +69,8 @@ async def startup_event():
     os.makedirs("app/static/uploads/avatars", exist_ok=True)
     os.makedirs("app/static/uploads/moments", exist_ok=True)
     os.makedirs("app/static/uploads/albums", exist_ok=True)
+    os.makedirs("app/static/uploads/backgrounds/profile", exist_ok=True)
+    os.makedirs("app/static/uploads/backgrounds/moments", exist_ok=True)
 
 # 根路由
 @app.get("/")

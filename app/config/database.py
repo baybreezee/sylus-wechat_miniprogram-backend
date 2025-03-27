@@ -17,7 +17,6 @@ relationship_collection = db["relationships"]
 chat_collection = db["chat_messages"]
 moments_collection = db["moments"]
 diary_collection = db["diaries"]
-album_collection = db["albums"]
 
 # 获取异步数据库
 def get_database():
@@ -37,23 +36,37 @@ def setup_indexes():
     
     # 日记索引
     diary_collection.create_index([("user_id", 1), ("date", -1)])
-    
-    # 相册索引
-    album_collection.create_index([("upload_date", -1)])
 
 # 数据库初始化函数
 def init_db():
-    # 设置索引
-    setup_indexes()
+    """初始化数据库，创建索引等操作"""
+    # 用户集合索引
+    users_collection.create_index([("openid", 1)], unique=True)
     
-    # 如果Sylus信息不存在，则初始化
+    # Sylus集合初始化
     if sylus_collection.count_documents({}) == 0:
-        sylus_info = {
+        # 如果Sylus信息不存在，创建默认信息
+        from datetime import datetime
+        sylus_collection.insert_one({
             "name": "Sylus",
             "avatar": "/static/default/sylus_avatar.png",
             "signature": "你的AI伴侣，一直在你身边",
             "tags": ["温柔", "体贴", "聪明", "善解人意"],
             "personality": "温柔体贴，善解人意，偶尔有点小调皮",
-            "created_at": "2023-01-01T00:00:00Z"
-        }
-        sylus_collection.insert_one(sylus_info) 
+            "created_at": datetime(2023, 1, 1)
+        })
+    
+    # 关系集合索引
+    relationship_collection.create_index([("user_id", 1)], unique=True)
+    
+    # 聊天集合索引
+    chat_collection.create_index([("user_id", 1), ("timestamp", -1)])
+    
+    # 朋友圈集合索引
+    moments_collection.create_index([("timestamp", -1)])
+    
+    # 日记集合索引
+    diary_collection.create_index([("user_id", 1), ("date", -1)])
+
+    # 设置索引
+    setup_indexes() 

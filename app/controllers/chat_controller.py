@@ -6,6 +6,7 @@ from app.models.user import UserInDB
 from app.models.chat import SendMessage, AIResponseRequest, AIResponse, ChatMessage
 from app.utils.auth import get_current_active_user
 from app.services.ai_service import get_chat_response
+from app.services.memory_service import get_memory_service
 from bson import ObjectId
 
 # 获取聊天历史
@@ -29,6 +30,7 @@ async def get_chat_history(current_user: UserInDB):
 async def send_message(message: ChatMessage, current_user: UserInDB, test_date=None):
     """发送聊天消息"""
     db = get_database()
+    memory_service = await get_memory_service(str(current_user.id))
     
     # 创建新消息
     now = datetime.now()
@@ -96,16 +98,41 @@ async def get_ai_response(message: ChatMessage, current_user: UserInDB):
     """获取AI对用户消息的回复"""
     db = get_database()
     
+    # 获取记忆服务
+    memory_service = await get_memory_service(str(current_user.id))
+    
+    # 获取Sylus信息
+    sylus = sylus_collection.find_one()
+    if not sylus:
+        raise HTTPException(status_code=404, detail="Sylus信息未找到")
+    
+    # 获取格式化的上下文
+    context = await memory_service.get_formatted_context(personality=sylus.get("personality", ""))
+    
+    # 获取AI回复
+    ai_response = await get_chat_response(
+        message=message.content, 
+        context=context,
+        personality=sylus.get("personality", "温柔、体贴")
+    )
+    
     # 创建AI回复消息
-    ai_response = {
+    ai_message = {
         "user_id": str(current_user.id),
-        "content": f"这是对'{message.content}'的AI回复",
+        "content": ai_response.response,
         "timestamp": datetime.now(),
-        "type": "ai"
+        "type": "ai",
+        "emotion": ai_response.emotion
     }
     
     # 保存AI回复到数据库
-    result = await db.chat_messages.insert_one(ai_response)
+    result = await db.chat_messages.insert_one(ai_message)
+    
+    # 异步保存对话摘要
+    try:
+        await memory_service.save_conversation_summary()
+    except Exception as e:
+        print(f"保存对话摘要时出错: {str(e)}")
     
     # 返回保存的AI回复
     saved_response = await db.chat_messages.find_one({"_id": result.inserted_id})

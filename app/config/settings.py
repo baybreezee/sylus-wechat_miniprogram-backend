@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from app.config.database import get_database
 
 # 加载环境变量
 load_dotenv()
@@ -27,4 +28,7 @@ UPLOAD_FOLDER = "app/static/uploads"
 MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16MB
 
 # 确保上传文件夹存在
-os.makedirs(UPLOAD_FOLDER, exist_ok=True) 
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+# 导出get_database函数，使其在整个应用中可用
+__all__ = ["get_database"] 

@@ -4,7 +4,8 @@ from datetime import datetime
 from app.controllers.moments_controller import (
     get_moments, create_moment, upload_moment_image,
     like_moment, comment_moment, get_ai_moment_response,
-    delete_moment, delete_comment
+    delete_moment, delete_comment, upload_moments_background,
+    get_moments_background
 )
 from app.models.user import UserInDB
 from app.models.moments import CreateMoment, CreateComment, MomentAIResponseRequest
@@ -78,4 +79,17 @@ async def delete_comment_route(
     current_user: UserInDB = Depends(get_current_active_user)
 ):
     """删除指定的朋友圈评论"""
-    return await delete_comment(moment_id, comment_id, current_user) 
+    return await delete_comment(moment_id, comment_id, current_user)
+
+@router.post("/background")
+async def upload_background(
+    file: UploadFile = File(...),
+    current_user: UserInDB = Depends(get_current_active_user)
+):
+    """上传朋友圈背景图片"""
+    return await upload_moments_background(file, current_user)
+
+@router.get("/background/{openid}/{filename}")
+async def get_background(openid: str, filename: str):
+    """获取朋友圈背景图片"""
+    return await get_moments_background(openid, filename) 

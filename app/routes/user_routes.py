@@ -1,5 +1,8 @@
 from fastapi import APIRouter, Depends, File, UploadFile
-from app.controllers.user_controller import get_user_info, update_user_info, upload_avatar
+from app.controllers.user_controller import (
+    get_user_info, update_user_info, upload_avatar, 
+    upload_profile_background, get_profile_background
+)
 from app.controllers.auth_controller import wechat_login
 from app.models.user import UserUpdate, UserInDB, UserLogin
 from app.utils.auth import get_current_active_user
@@ -31,6 +34,11 @@ async def update_user(user_update: UserUpdate, current_user: UserInDB = Depends(
 async def upload_user_avatar(file: UploadFile = File(...), current_user: UserInDB = Depends(get_current_active_user)):
     """上传并更新用户头像"""
     return await upload_avatar(file, current_user)
+
+@router.post("/background")
+async def upload_user_background(file: UploadFile = File(...), current_user: UserInDB = Depends(get_current_active_user)):
+    """上传并更新用户个人资料背景图片"""
+    return await upload_profile_background(file, current_user)
 
 @router.get("/avatar/{openid}/{filename}")
 async def get_user_avatar(openid: str, filename: str):
@@ -92,4 +100,9 @@ async def get_user_avatar(openid: str, filename: str):
         return JSONResponse(
             status_code=500,
             content={"detail": f"服务器错误: {str(e)}"}
-        ) 
+        )
+
+@router.get("/background/{openid}/{filename}")
+async def get_user_background(openid: str, filename: str):
+    """获取用户个人资料背景图片"""
+    return await get_profile_background(openid, filename) 

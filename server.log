@@ -1,150 +1,98 @@
-INFO:     Started server process [9939]
+INFO:     Started server process [2628]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:2100 (Press CTRL+C to quit)
-INFO:     172.16.0.108:52082 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.108:52082 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.108:52086 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.108:52102 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:52102 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:63202 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.108:63212 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:63212 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:63212 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.79:50002 - "POST /api/users/avatar HTTP/1.1" 200 OK
-INFO:     172.16.0.79:12794 - "POST /api/users/avatar HTTP/1.1" 200 OK
-INFO:     172.16.0.108:18140 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:59092 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:20124 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.108:20124 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.108:20128 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.108:20128 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:20128 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.79:56096 - "POST /api/users/avatar HTTP/1.1" 200 OK
-INFO:     172.16.0.108:62906 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.108:62908 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:62908 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:62908 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:50002 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.108:50002 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.108:50004 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.108:50016 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:50016 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.79:23974 - "POST /api/users/avatar HTTP/1.1" 200 OK
-INFO:     172.16.0.108:50002 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.108:50002 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.108:1524 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.108:1532 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:1532 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:60812 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:60828 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.108:60828 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:60828 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.79:65470 - "POST /api/users/avatar HTTP/1.1" 200 OK
-INFO:     请求头像文件路径: app/static/uploads/avatars/test_openid_33Cn0y/0c905a1a-f465-4c2a-abd6-4bdf83a634c5.jpg
+INFO:     172.16.0.107:26188 - "POST /api/users/login HTTP/1.1" 200 OK
+INFO:     172.16.0.107:26188 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.107:26188 - "GET /api/sylus/info HTTP/1.1" 200 OK
+INFO:     172.16.0.107:3962 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:3962 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:3962 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.107:3962 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:3962 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50002 - "POST /api/users/login HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50002 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50004 - "GET /api/sylus/info HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50010 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50010 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50010 - "GET /api/users/me HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50004 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50004 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50004 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50002 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50002 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50002 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50002 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:63430 - "POST /api/users/login HTTP/1.1" 200 OK
+INFO:     172.16.0.107:63430 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:63430 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.82:61294 - "POST /api/users/background HTTP/1.1" 401 Unauthorized
+INFO:     172.16.0.107:55618 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:55618 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:55620 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:55620 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:24484 - "PUT /api/sylus/update-name HTTP/1.1" 401 Unauthorized
+INFO:     172.16.0.107:11500 - "POST /api/users/login HTTP/1.1" 200 OK
+INFO:     172.16.0.107:11500 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:11500 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.107:50002 - "PUT /api/sylus/update-name HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:39570 - "POST /api/users/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38242 - "POST /api/moments/background HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43246 - "HEAD /api/moments/background/67da3e5158330559dcec4b2c/d3915c02-18b1-49bb-98f6-ad85e6ccf801.jpg HTTP/1.1" 405 Method Not Allowed
+INFO:     请求朋友圈背景图片路径: app/static/uploads/backgrounds/moments/67da3e5158330559dcec4b2c/d3915c02-18b1-49bb-98f6-ad85e6ccf801.jpg
 INFO:     文件MIME类型: image/jpeg
-INFO:     文件大小: 140571 字节
-INFO:     172.16.0.79:65470 - "GET /api/users/avatar/test_openid_33Cn0y/0c905a1a-f465-4c2a-abd6-4bdf83a634c5.jpg HTTP/1.1" 200 OK
-INFO:     172.16.0.108:51182 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.108:51182 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.108:51194 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.108:51182 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:51182 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:63276 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.108:63276 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.108:63276 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.108:63276 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.108:63276 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:25918 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:25918 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:25928 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.112:25932 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:25932 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50004 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50006 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50006 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:26362 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:26362 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:26384 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.112:26378 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:26378 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:14256 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:14258 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:14272 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:14272 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50004 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50008 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50008 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:64576 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:64586 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:64586 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:64586 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:64586 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50018 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50004 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50004 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50004 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:57544 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:57544 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:17516 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.112:17530 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:17530 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50004 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50012 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50012 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.112:29190 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:29190 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:52252 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:52268 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:52268 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:52268 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:52268 - "POST /api/moments/67d953e432526856d7018603/like HTTP/1.1" 200 OK
-INFO:     172.16.0.112:52268 - "POST /api/moments/67d953e432526856d7018603/like HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50004 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50004 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50004 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50004 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50002 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50004 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:50004 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:25286 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:25286 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:9858 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.112:25286 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:25286 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:1678 - "POST /api/users/login HTTP/1.1" 200 OK
-INFO:     172.16.0.112:1678 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:1682 - "GET /api/sylus/info HTTP/1.1" 200 OK
-INFO:     172.16.0.112:1682 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:1682 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:1682 - "GET /api/users/me HTTP/1.1" 200 OK
-INFO:     172.16.0.112:1678 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.112:1678 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.129:50002 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.129:50002 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
-INFO:     172.16.0.129:50002 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     文件大小: 19 字节
+INFO:     127.0.0.1:52742 - "GET /api/moments/background/67da3e5158330559dcec4b2c/d3915c02-18b1-49bb-98f6-ad85e6ccf801.jpg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44334 - "POST /api/users/background HTTP/1.1" 200 OK
+INFO:     请求个人资料背景图片路径: app/static/uploads/backgrounds/profile/test_openid_t_code/6478e3ec-17a2-4926-87de-c19a1aa5a101.png
+INFO:     文件MIME类型: image/png
+INFO:     文件大小: 25 字节
+INFO:     127.0.0.1:46034 - "GET /api/users/background/test_openid_t_code/6478e3ec-17a2-4926-87de-c19a1aa5a101.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36362 - "PUT /api/sylus/update-name HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42580 - "PUT /api/sylus/update-name HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:59808 - "PUT /api/sylus/update-name HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60274 - "PUT /api/sylus/update-name HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:49012 - "PUT /api/sylus/update-name HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57274 - "PUT /api/sylus/update-name HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:48380 - "PUT /api/sylus/update-name HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:41108 - "PUT /api/sylus/update-name HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:55168 - "POST /api/moments/background HTTP/1.1" 400 Bad Request
+INFO:     请求朋友圈背景图片路径: app/static/uploads/backgrounds/moments/67da3e5158330559dcec4b2c/nonexistent.jpg
+ERROR:    朋友圈背景图片不存在: app/static/uploads/backgrounds/moments/67da3e5158330559dcec4b2c/nonexistent.jpg
+INFO:     127.0.0.1:49136 - "GET /api/moments/background/67da3e5158330559dcec4b2c/nonexistent.jpg HTTP/1.1" 404 Not Found
+INFO:     请求朋友圈背景图片路径: app/static/uploads/backgrounds/moments/67da3e5158330559dcec4b2c/nonexistent.jpg
+ERROR:    朋友圈背景图片不存在: app/static/uploads/backgrounds/moments/67da3e5158330559dcec4b2c/nonexistent.jpg
+INFO:     127.0.0.1:45960 - "GET /api/moments/background/67da3e5158330559dcec4b2c/nonexistent.jpg HTTP/1.1" 404 Not Found
+INFO:     172.16.0.125:50002 - "POST /api/users/login HTTP/1.1" 200 OK
+INFO:     172.16.0.126:9388 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:9388 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:9388 - "PUT /api/sylus/update-name HTTP/1.1" 401 Unauthorized
+INFO:     172.16.0.126:20862 - "POST /api/users/login HTTP/1.1" 200 OK
+INFO:     172.16.0.126:20862 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:20862 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:20862 - "PUT /api/sylus/update-name HTTP/1.1" 200 OK
+INFO:     172.16.0.126:20862 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:20862 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:20862 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:20862 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:20862 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:1372 - "POST /api/moments HTTP/1.1" 200 OK
+INFO:     172.16.0.126:1372 - "POST /api/moments/67da426b58330559dcec4b2f/like HTTP/1.1" 200 OK
+INFO:     172.16.0.126:1372 - "POST /api/moments/ai-response HTTP/1.1" 405 Method Not Allowed
+INFO:     172.16.0.126:1372 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:1372 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:1372 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+DEBUG: 检查今天是否有之前的聊天消息, user_id=67da425758330559dcec4b2e, today=2025-03-19
+DEBUG: 今天之前的聊天消息数量: 0
+DEBUG: 这是今天第一条消息，增加聊天天数
+DEBUG: 找到Sylus, ID=67d3f703b6f9169f33017316
+INFO:     172.16.0.126:1372 - "POST /api/chat/send HTTP/1.1" 200 OK
+INFO:     172.16.0.126:7390 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:7390 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:58054 - "POST /api/users/login HTTP/1.1" 200 OK
+INFO:     172.16.0.126:58054 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:58054 - "GET /api/chat/history?limit=20 HTTP/1.1" 200 OK
+INFO:     172.16.0.112:65494 - "POST /api/users/background HTTP/1.1" 200 OK
+INFO:     172.16.0.126:22104 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:22104 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
+INFO:     172.16.0.126:22104 - "GET /api/moments?limit=10 HTTP/1.1" 200 OK
