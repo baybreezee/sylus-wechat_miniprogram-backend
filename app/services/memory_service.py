@@ -2,7 +2,8 @@ import json
 from datetime import datetime, timedelta
 from typing import List, Dict, Any, Optional
 import openai
-from app.config.settings import AI_MODEL, OPENAI_API_KEY, get_database
+from app.config.settings import AI_MODEL, OPENAI_API_KEY
+from app.config.database import get_database, chat_collection
 from app.models.chat import AIResponse
 
 # 设置OpenAI API密钥

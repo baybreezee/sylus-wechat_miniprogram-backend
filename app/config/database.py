@@ -1,27 +1,25 @@
-from pymongo import MongoClient
 from motor.motor_asyncio import AsyncIOMotorClient
-from app.config.settings import MONGODB_URL, DATABASE_NAME
+from dotenv import load_dotenv
+import os
 
-# 创建MongoDB客户端连接（同步）
-client = MongoClient(MONGODB_URL)
-db = client[DATABASE_NAME]
+load_dotenv()
 
-# 创建MongoDB客户端连接（异步）
-async_client = AsyncIOMotorClient(MONGODB_URL)
-async_db = async_client[DATABASE_NAME]
+MONGODB_URL = os.getenv("MONGODB_URL", "mongodb://localhost:27017")
+DATABASE_NAME = os.getenv("DATABASE_NAME", "aichat")
+
+client = AsyncIOMotorClient(MONGODB_URL)
+database = client[DATABASE_NAME]
+
+def get_database():
+    return database
 
 # 定义集合（同步）
-users_collection = db["users"]
-sylus_collection = db["sylus"]
-relationship_collection = db["relationships"]
-chat_collection = db["chat_messages"]
-moments_collection = db["moments"]
-diary_collection = db["diaries"]
-
-# 获取异步数据库
-def get_database():
-    """获取异步数据库连接"""
-    return async_db
+users_collection = database["users"]
+sylus_collection = database["sylus"]
+relationship_collection = database["relationships"]
+chat_collection = database["chat_messages"]
+moments_collection = database["moments"]
+diary_collection = database["diaries"]
 
 # 创建索引
 def setup_indexes():
